@@ -1,6 +1,6 @@
 import aiohttp
 from aiogram import types
-from bot.config import proxy, user, password
+from .config import proxy, user, password
 
 
 async def fetch(message: types.Message):
@@ -9,11 +9,11 @@ async def fetch(message: types.Message):
             data = await response.json()
             for x in data:
                 product_name = x['product_model']
-                img = x['img']
-                # with open(img, 'rb') as f:
-                #     cate = f.read()
+                img = 'media/Снимок_экрана_1_eDZxo9U.png'
+                with open(img, 'rb') as f:
+                    cate = f.read()
                 description = x['description']
-                await message.answer_photo(img)
+                await message.answer_photo(cate)
                 await message.answer(f'{product_name}'
                                      f'\n{description}'
                                      )

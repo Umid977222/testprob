@@ -6,8 +6,7 @@ from django.db import models
 
 
 def upload_location(instance, filename):
-    output = filename.split('.')[-1]
-    return f'{filename}{datetime.now()}.{output}'
+    return filename
 
 
 class Problems(models.Model):
